@@ -29,9 +29,9 @@ SECRET_KEY = 'django-insecure-^-&ff^4n3%yn1^es70u^9)4bzjb2mug_hu=u!jpqyk=5%fy=e%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['max-1bm0.onrender.com']
 
-
+CSRF_TRUSTED_ORIGINS = ['https://max-1bm0.onrender.com/','https://*.127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'MAX.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates',],
+        'DIRS': ['templates'],  # Adjust the path accordingly
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,12 +82,6 @@ WSGI_APPLICATION = 'MAX.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
@@ -129,27 +123,22 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_URL = '/static/'  
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    # BASE_DIR / 'static',
 ]
+MEDIA_URL = '/media/'  
+MEDIA_ROOT = BASE_DIR / 'media'
 
-
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
-
-# settings.py
-
-
-
-
-
-MEDIA_ROOT = BASE_DIR / "media"
-MEDIA_URL = "/media/"
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env("EMAIL")
+EMAIL_HOST_PASSWORD = env("EMAIL_PASSWORD")
