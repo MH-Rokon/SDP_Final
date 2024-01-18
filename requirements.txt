@@ -1,0 +1,15 @@
+asgiref
+dj-database-url
+Django
+django-cors-headers
+django-crispy-forms
+django-environ
+django-filter
+djangorestframework
+pillow
+psycopg2
+psycopg2-binary
+pytz
+sqlparse
+typing_extensions
+tzdata

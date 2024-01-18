@@ -1,0 +1,29 @@
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="{{ object.image.url }}" class="card-img" alt="{{ object.name }}">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'detail_post' object.id %}" class="text-decoration-none text-dark">{{ object.name }}</a>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">Specialty: 
+                    {% if object.categories.all %}
+                        {% for category in object.categories.all %}
+                            {{ category.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </h6>
+                <p class="card-text">{{ object.description }}</p>
+                <p class="card-text">Fee: {{ object.fee }}</p>
+
+                <form style="width: 50%; margin: auto;" method="post" action="{% url 'book_appointment' object.id %}">
+                    {% csrf_token %}
+                    <!-- Add form fields here if needed -->
+                    <button type="submit" class="btn btn-primary">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

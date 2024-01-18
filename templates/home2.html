@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+
+    
+    <div class="flex flex-col w-full lg:w-1/2 justify-center items-start pt-12 pb-24 px-6 bg-white rounded-2xl bg-opacity-70 mx-3">
+        <h1 class="font-bold text-4xl my-4"> MAX HOSPITAL </h1>
+        <p class="leading-normal mb-4">
+          
+            Max Hospital is a renowned healthcare institution committed to delivering excellence in medical services and patient care. With a steadfast dedication to advancing medical science and technology, Max Hospital has established itself as a leading healthcare provider. The hospital boasts state-of-the-art facilities, cutting-edge medical equipment, and a team of highly skilled healthcare professionals. Specializing in a wide array of medical disciplines, Max Hospital offers comprehensive services ranging from preventive health check-ups to intricate surgical procedures. Patient-centric care, coupled with a compassionate approach, defines Max Hospital's commitment to ensuring the well-being of its patients. The institution places a strong emphasis on research and innovation, continuously striving to set new benchmarks in the healthcare industry. Max Hospital stands as a beacon of health and healing, providing a comforting haven for individuals seeking top-tier medical treatment and 
+        </p>
+        <div class="flex justify-end w-full">
+            <a href="{% url 'register' %}" class="bg-blue-900 text-white rounded-none hover:bg-white hover:text-blue-900 hover:border-blue-900 shadow hover:shadow-lg py-2 px-4 border border-gray-900 hover:border-transparent">Register</a>
+        </div>
+    </div>
+    <div class="w-full lg:w-1/2 lg:py-6 text-center ">
+        <img class ="rounded-2xl" src ="{% static './img/z.avif' %}"/>
+    </div>
+</div>
+
+{% block content1 %}
+{% endblock %}
+
+{% endblock %}
